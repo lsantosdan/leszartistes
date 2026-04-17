@@ -9,6 +9,12 @@
       padding: 20px;
     }
 
+    .logo {
+      display: block;
+      margin: 0 auto 28px auto;
+      max-width: 200px;
+    }
+
     .buttons {
       display: flex;
       flex-direction: column;
@@ -28,13 +34,15 @@
 
     button:hover { opacity: 0.85; }
 
-    #btn1 { background: #0066cc; color: white; }
-    #btn2 { background: #228B22; color: white; }
+    #btn1 { background: #b1b9a2; color: white; }
+    #btn2 { background: #cdae75; color: white; }
 
     .form-section { display: none; }
   </style>
 </head>
 <body>
+
+  <img src="logo.jpg" alt="Logo" class="logo">
 
   <div class="buttons">
     <button id="btn1" onclick="showForm(1)">
@@ -68,3 +76,4 @@
 
 </body>
 </html>
+  
