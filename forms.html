@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Forms</title>
   <style>
-    .forms-container {
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .buttons {
       display: flex;
-      gap: 20px;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
     }
-    iframe {
-      width: 50%;
-      height: 600px;
+
+    button {
+      padding: 14px 20px;
+      font-size: 15px;
       border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      transition: opacity 0.2s;
     }
+
+    button:hover { opacity: 0.85; }
+
+    #btn1 { background: #0066cc; color: white; }
+    #btn2 { background: #228B22; color: white; }
+
+    .form-section { display: none; }
   </style>
 </head>
 <body>
-  <div class="forms-container">
-    <iframe class="airtable-embed" src="https://airtable.com/embed/appAoE23eTWJKu4Ke/paglKrj7T6nEkFR5o/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
-	<iframe class="airtable-embed" src="https://airtable.com/embed/appAoE23eTWJKu4Ke/pag0yVvyrxDXHoodw/form" frameborder="0" onmousewheel="" width="100%" height="533" style="background: transparent; border: 1px solid #ccc;"></iframe>
+
+  <div class="buttons">
+    <button id="btn1" onclick="showForm(1)">
+      Étape 1 — Enregistrez vos informations
+    </button>
+    <button id="btn2" onclick="showForm(2)">
+      Étape 2 — Déjà inscrit(e) ? Cliquez ici pour rejoindre le projet "Chaises Musicales" et proposer vos idées de chansons à jouer ensemble
+    </button>
   </div>
+
+  <div id="form1-section" class="form-section">
+    <iframe src="https://airtable.com/embed/appAoE23eTWJKu4Ke/paglKrj7T6nEkFR5o/form"
+            width="100%" height="600" frameborder="0"></iframe>
+  </div>
+
+  <div id="form2-section" class="form-section">
+    <iframe src="https://airtable.com/embed/appAoE23eTWJKu4Ke/pag0yVvyrxDXHoodw/form"
+            width="100%" height="600" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    function showForm(n) {
+      document.getElementById('form1-section').style.display = 'none';
+      document.getElementById('form2-section').style.display = 'none';
+
+      const target = document.getElementById('form' + n + '-section');
+      target.style.display = 'block';
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+
 </body>
 </html>
